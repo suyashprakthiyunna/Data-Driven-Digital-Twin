@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EV Battery Efficiency Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container glass mt-5 p-4">
+  <h2 class="text-center mb-4">⚡ EV Battery Efficiency Predictor</h2>
+
+  <form method="POST" action="/predict">
+    <div class="row">
+      <div class="col-md-4"><input class="form-control" name="soc" placeholder="SOC (%)" required></div>
+      <div class="col-md-4"><input class="form-control" name="voltage" placeholder="Voltage (V)" required></div>
+      <div class="col-md-4"><input class="form-control" name="current" placeholder="Current (A)" required></div>
+    </div><br>
+
+    <div class="row">
+      <div class="col-md-4"><input class="form-control" name="batt_temp" placeholder="Battery Temp (°C)" required></div>
+      <div class="col-md-4"><input class="form-control" name="amb_temp" placeholder="Ambient Temp (°C)" required></div>
+      <div class="col-md-4"><input class="form-control" name="duration" placeholder="Charging Duration (min)" required></div>
+    </div><br>
+
+    <div class="row">
+      <div class="col-md-4"><input class="form-control" name="degradation" placeholder="Degradation Rate (%)" required></div>
+      <div class="col-md-4"><input class="form-control" name="cycles" placeholder="Charging Cycles" required></div>
+      <div class="col-md-4"><input class="form-control" name="optimal_class" placeholder="Optimal Duration Class" required></div>
+    </div><br>
+
+    <div class="row">
+      <div class="col-md-4">
+        <select class="form-control" name="charging_mode" required>
+          <option>Fast</option>
+          <option>Normal</option>
+          <option>Slow</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" name="battery_type" required>
+          <option>Li-ion</option>
+          <option>LiFePO4</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" name="ev_model" required>
+          <option>Model B</option>
+          <option>Model A</option>
+          <option>Model C</option>
+        </select>
+      </div>
+    </div><br>
+
+    <button class="btn btn-primary w-100">Predict Efficiency</button>
+  </form>
+</div>
+</body>
+</html>
